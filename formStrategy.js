@@ -1,9 +1,11 @@
 var express = require('express');
 var url = require('url');
 var auth = require('auth');
+var should = require('should');
 
 module.exports = function(options) {
-	options = options || {};
+	options = options;
+	auth.init(options.client);
 	var that = {};
 	var my = {};
 	that.name = options.name || "form";
@@ -73,11 +75,19 @@ module.exports = function(options) {
 								}
 							});
 						} else {
-							response.render('auth/create_fail.jade');
+							response.render('auth/create_fail.jade', {
+								locals : {
+									title : 'fail whale'
+								}
+							});
 						}
 					});
 				} else {
-					response.render('auth/create_fail.jade');
+					response.render('auth/create_fail.jade', {
+						locals : {
+							title : 'fail whale'
+						}
+					});
 				}
 			});
 

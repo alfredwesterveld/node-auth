@@ -1,7 +1,8 @@
-form(action!=url, method='post')
+p!=title
+form(action=url, method='post')
   label(for='user') Email:
     input(type='text', name='user', id='user')
   br
   label(for='password') Password:
     input(type='password', name='password', id='password')
-  input(type='submit')
+  input(type='submit', value='Submit')
